@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 9073384748142312393}
   - component: {fileID: 6918086696741944328}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,9 +361,9 @@ GameObject:
   - component: {fileID: 4375795780380665947}
   - component: {fileID: 9021479797424324132}
   - component: {fileID: 8817607024734897843}
-  - component: {fileID: 6737411343790298000}
   - component: {fileID: 145402003101720242}
   - component: {fileID: 1168956326220995688}
+  - component: {fileID: 5394541998703800154}
   m_Layer: 0
   m_Name: Player Rocket
   m_TagString: Player
@@ -480,8 +480,11 @@ MonoBehaviour:
     m_Flags: 0
   thrustStrength: 2500
   rotationStrengh: 130.2
+  mainThruster: {fileID: 4099107744176851585}
+  leftThruster: {fileID: 8070783666251804664}
+  rightThruster: {fileID: 961930897889318856}
   isFrozen: 0
-  rocketThrustSound: {fileID: 0}
+  rocketThrustSound: {fileID: 8300000, guid: b69d9125612c103428cc2b89fdb6af6d, type: 3}
 --- !u!114 &8817607024734897843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,12 +505,60 @@ MonoBehaviour:
   successParticles: {fileID: 7723383789132352780}
   crashParticles: {fileID: 1811383508007336449}
   shieldVisuals: {fileID: 6502939808282438783}
-  invincibilityTime: 1
-  shieldBounceForce: 0.5
+  invincibilityTime: 1.5
+  shieldBounceForce: 5
   cameraTransform: {fileID: 0}
-  freezeDuration: 0.5
-  volumeScale: 0
---- !u!82 &6737411343790298000
+  freezeDuration: 1
+  volumeScale: 1
+--- !u!54 &145402003101720242
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8466889620129420580}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 2
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 56
+  m_CollisionDetection: 0
+--- !u!65 &1168956326220995688
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8466889620129420580}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.2573195, y: 9.844602, z: 5.1851974}
+  m_Center: {x: -0.43894663, y: 0.96463525, z: 0.4275999}
+--- !u!82 &5394541998703800154
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -518,15 +569,15 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: b69d9125612c103428cc2b89fdb6af6d, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.332
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 238
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -604,54 +655,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!54 &145402003101720242
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8466889620129420580}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 2
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 56
-  m_CollisionDetection: 0
---- !u!65 &1168956326220995688
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8466889620129420580}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6.2573195, y: 9.844602, z: 5.1851974}
-  m_Center: {x: -0.43894663, y: 0.96463525, z: 0.4275999}
 --- !u!1001 &379504266633071018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -709,6 +712,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
+--- !u!198 &961930897889318856 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 584678573886053986, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
+  m_PrefabInstance: {fileID: 379504266633071018}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1150442341013478784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 771087676723270698, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
@@ -960,6 +968,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
+--- !u!198 &4099107744176851585 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198100719057022332, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
+  m_PrefabInstance: {fileID: 4205587220915185661}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4200929360149070025 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4940884351362868, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
@@ -1089,6 +1102,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
+--- !u!198 &8070783666251804664 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 584678573886053986, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
+  m_PrefabInstance: {fileID: 8654824381651104154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8263939029728339376 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 771087676723270698, guid: d4b06ebeeaf0ac044aeed997d98443c2, type: 3}
